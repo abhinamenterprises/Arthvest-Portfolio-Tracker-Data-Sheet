@@ -42,6 +42,13 @@ function dateInIndia(date = new Date()) {
   return `${part.year}-${part.month}-${part.day}`;
 }
 
+function isWeekdayInIndia(date) {
+  const weekday = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'Asia/Kolkata', weekday: 'short',
+  }).format(date);
+  return weekday !== 'Sat' && weekday !== 'Sun';
+}
+
 const response = await fetch(SHEET_CSV_URL, {
   headers: { 'user-agent': 'ArthvestPortfolioPriceFeed/1.0' },
   signal: AbortSignal.timeout(20000),
@@ -76,12 +83,15 @@ if (existsSync(HISTORY_PATH)) {
     if (Array.isArray(old.snapshots)) snapshots = old.snapshots;
   } catch { /* A fresh history file will be created below. */ }
 }
-// Keep one end-of-day observation per India date. Intraday refreshes update
-// today's row; the 17:00 IST workflow run leaves the final daily snapshot.
-const currentSnapshot = { date: asOfDate, capturedAt: fetchedAt, prices };
-const existingIndex = snapshots.findIndex(snapshot => snapshot.date === asOfDate);
-if (existingIndex >= 0) snapshots[existingIndex] = currentSnapshot;
-else snapshots.push(currentSnapshot);
+// Keep one daily observation per weekday in India. Intraday refreshes update
+// today's row; the 17:00 IST workflow run leaves the final weekday snapshot.
+snapshots = snapshots.filter(snapshot => isWeekdayInIndia(new Date(`${snapshot.date}T12:00:00+05:30`)));
+if (isWeekdayInIndia(new Date(fetchedAt))) {
+  const currentSnapshot = { date: asOfDate, capturedAt: fetchedAt, prices };
+  const existingIndex = snapshots.findIndex(snapshot => snapshot.date === asOfDate);
+  if (existingIndex >= 0) snapshots[existingIndex] = currentSnapshot;
+  else snapshots.push(currentSnapshot);
+}
 const cutoff = new Date(`${asOfDate}T00:00:00+05:30`);
 cutoff.setDate(cutoff.getDate() - HISTORY_DAYS);
 const cutoffDate = dateInIndia(cutoff);
