@@ -1,6 +1,11 @@
 name: Update market prices
 
 on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'data/**'
   schedule:
     # 08:30–16:15 India time, Monday to Friday (UTC is 5 h 30 min behind).
     - cron: '*/15 3-10 * * 1-5'
