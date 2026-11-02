@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "source": "Google Sheets published CSV",
-  "fetchedAt": "2026-11-02T10:25:47.195Z",
-  "asOfDate": "2026-11-02",
+  "fetchedAt": "2026-11-02T20:27:36.220Z",
+  "asOfDate": "2026-11-03",
   "timezone": "Asia/Kolkata",
   "prices": {
     "TCS": 2501.7,
@@ -35,7 +35,6 @@
     "ABB": 6600,
     "ABBOTINDIA": 25895,
     "ABCAPITAL": 378.3,
-    "ABCOTS": 162.7,
     "ABDL": 704,
     "ABFRL": 39.5,
     "ABINFRA": 12.2,
@@ -2067,7 +2066,7 @@
     "SHILCTECH": 3565.8,
     "SHILGRAVQ": 129.88,
     "SHILPAMED": 929,
-    "SHINDL": 148.13,
+    "SHINDL": 149.44,
     "SHIPROCKET": 125.9,
     "SHIVAAGRO": 37.6,
     "SHIVACEM": 12.86,
