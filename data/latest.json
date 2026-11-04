@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "source": "Google Sheets published CSV",
-  "fetchedAt": "2026-11-04T10:18:44.238Z",
+  "fetchedAt": "2026-11-04T18:09:13.762Z",
   "asOfDate": "2026-11-04",
   "timezone": "Asia/Kolkata",
   "prices": {
@@ -377,7 +377,7 @@
     "BLBLIMITED": 16,
     "BLEL": 452,
     "BLIL": 64.42,
-    "BLISSGVS": 624,
+    "BLISSGVS": 615,
     "BLKASHYAP": 53.5,
     "BLS": 216.85,
     "BLSE": 148.5,
@@ -1620,7 +1620,7 @@
     "NSLNISP": 39.5,
     "NTCIND": 120.11,
     "NTPC": 321.95,
-    "NTPCGREEN": 83.1,
+    "NTPCGREEN": 83.3,
     "NUCLEUS": 629,
     "NURECA": 307.5,
     "NUVAMA": 1845,
