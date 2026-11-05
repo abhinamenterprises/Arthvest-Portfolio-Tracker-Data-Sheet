@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "source": "Google Sheets published CSV",
-  "fetchedAt": "2026-11-05T18:01:56.977Z",
-  "asOfDate": "2026-11-05",
+  "fetchedAt": "2026-11-05T18:51:37.978Z",
+  "asOfDate": "2026-11-06",
   "timezone": "Asia/Kolkata",
   "prices": {
     "TCS": 2495.7,
